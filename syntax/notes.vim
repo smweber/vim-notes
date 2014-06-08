@@ -114,12 +114,12 @@ syntax cluster notesInline add=notesWindowsPath
 highlight def link notesWindowsPath Directory
 
 " Highlight TODO, DONE, FIXME and XXX markers. {{{2
-syntax match notesTodo /\<TODO\>/
+syntax match notesTodo /\<\(TODO\|[ ]\)\>/
 syntax match notesXXX /\<XXX\>/
 syntax match notesFixMe /\<FIXME\>/
-syntax match notesInProgress /\<\(CURRENT\|INPROGRESS\|STARTED\|WIP\)\>/
-syntax match notesDoneItem /^\(\s\+\).*\<DONE\>.*\(\n\1\s.*\)*/ contains=@notesInline
-syntax match notesDoneMarker /\<DONE\>/ containedin=notesDoneItem
+syntax match notesInProgress /\<\(CURRENT\|INPROGRESS\|STARTED\|WIP\|WAIT\)\>/
+syntax match notesDoneItem /^\(\s\+\).*\<\(DONE\|[X]\)\>.*\(\n\1\s.*\)*/ contains=@notesInline
+syntax match notesDoneMarker /\<\(DONE\|[X]\)\>/ containedin=notesDoneItem
 highlight def link notesTodo WarningMsg
 highlight def link notesXXX WarningMsg
 highlight def link notesFixMe WarningMsg
